@@ -1,0 +1,42 @@
+public class BubbleSort {
+    public static void main(String[] args) {
+        long start = System.currentTimeMillis();
+        int [] array = {63,8,1,45,36,99,10,101,98};
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i]+" ");
+        }
+        bubbleSort(array);
+        System.out.println();
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i]+" ");
+        }
+        System.out.println();
+        long end = System.currentTimeMillis();
+        System.out.println(end-start+" ms");
+    }
+
+    /** 冒泡排序：通过相邻两个元素的比较和交换进行排序
+     * Outside for loop controls round number of comparison.
+     * 外层 for循环控制比较轮数
+     * Inside for loop controls times of comparison in current round.
+     * 内层 for循环控制当前轮数比较次数
+     * Number of round + round of comparing times = number of elements in array.
+     * 轮数 + 当前轮数比较次数 = 数组中元素个数
+     * Example: An array has n elements, it needs to be compared for n-1 rounds( from 1 to n-1),
+     * the first round needs to be compared for n-1 times( from n-1 to 1).
+     * 例如： 一个数组有n个元素， 它需要被比较 n-1次（ 从 1到 n-1轮）， 第一轮需要比较 n-1次（ 从 n-1次到末轮 1次）
+     */
+    static void bubbleSort(int [] a){
+        int c;
+        for(int i=0;i<a.length-1;i++){
+            for (int j = 0; j < a.length-1-i; j++) {
+                if(a[j]>a[j+1]){
+                    c=a[j];
+                    a[j]=a[j+1];
+                    a[j+1]=c;
+                }
+            }
+        }
+    }
+
+}
