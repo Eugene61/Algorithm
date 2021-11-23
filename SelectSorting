@@ -1,0 +1,21 @@
+/** 直接选择排序：将一个元素与数组中其他元素相比并创建 index变量作为数组下标指向比较后较大的元素，
+     * 将最大的元素存入未排序数组末位，进入下一循环。
+     * Outside for loop controls round number of comparison.
+     * 外层 for循环控制比较轮数。（最后一个数字不用排序，所以 n个元素只需要 n-1次轮数）
+     * Inside for loop compare 2 elements and store the larger one's subscript by creating index variable
+     * 内层 for循环依次比较数组中的两个元素（上一次比较后较大的元素与下一个元素）并存储较大的元素，通过创建 index变量指向较大元素。
+     */
+    static void selectSort(int [] a){
+        int index;
+        for (int i = 1; i < a.length; i++) {
+            index=0;
+            for (int j = 1; j <=a.length-i; j++) {
+                if(a[j]>a[index]){
+                    index=j;
+                }
+            }
+            int temp = a[a.length-i];
+            a[a.length-i]=a[index];
+            a[index]=temp;
+        }
+    }
